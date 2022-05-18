@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\WorkerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::controller(WorkerController::class)->group(function () {
+    Route::get('/workers', 'index')->name('api.workers.index');
+    Route::get('/workers/{id}', 'show')->name('api.workers.show');
+
 });
