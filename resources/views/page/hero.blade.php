@@ -20,7 +20,7 @@
             </p>
 
             <a
-                href="#"
+                href="{{ route('register.index') }}"
                 class="flex justify-center items-center py-2 px-4 font-medium text-md border border-transparent rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
                 Comece hoje mesmo

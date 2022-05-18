@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('page.hero');
-})->name('home');
+Route::view('/', 'page.hero')->name('home');
+
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('/cadastro', 'index')->name('register.index');
+    Route::post('/cadastro', 'store')->name('register.store');
+    Route::get('/cadastro-finalizado', 'success')->name('register.success');
+});
